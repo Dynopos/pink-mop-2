@@ -136,6 +136,12 @@ section{padding:90px 0}
 .checks li::before{content:"✿";color:var(--pink);flex:none;margin-top:.05rem}
 @media(max-width:860px){.split{grid-template-columns:1fr}}
 
+/* ---------- aksi sebenar ---------- */
+.aksi-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem}
+.aksi-item{border-radius:18px;overflow:hidden;box-shadow:0 14px 32px rgba(43,18,32,.14);border:1px solid var(--line);aspect-ratio:3/4}
+.aksi-item img{width:100%;height:100%;object-fit:cover;display:block;transition:.35s}
+.aksi-item:hover img{transform:scale(1.06)}
+
 /* ---------- produk ---------- */
 .prod{background:linear-gradient(180deg,#FFF 0%,var(--blush) 100%)}
 .prod .split .frame{box-shadow:0 24px 55px rgba(217,28,119,.16);border:1px solid var(--line)}
@@ -206,10 +212,11 @@ footer{border-top:1px solid rgba(255,255,255,.08);padding:2rem 0;background:#1D0
    <a href="#promo">Promo RM99</a>
    <a href="#pakej">Pakej</a>
    <a href="#tentang">Tentang</a>
+   <a href="#aksi">Aksi</a>
    <a href="#produk">Produk</a>
    <a href="#testimoni">Testimoni</a>
   </nav>
-  <a class="btn btn-pink" href="https://wa.me/601111150388?text=Salam%20Pink%20Mop%2C%20saya%20nak%20tanya%20pasal%20servis%20cleaning" target="_blank">WhatsApp Kami</a>
+  <a class="btn btn-pink" href="https://wa.me/60123810039?text=Salam%20Pink%20Mop%2C%20saya%20nak%20tanya%20pasal%20servis%20cleaning" target="_blank">WhatsApp Kami</a>
  </div>
 </header>
 
@@ -221,7 +228,7 @@ footer{border-top:1px solid rgba(255,255,255,.08);padding:2rem 0;background:#1D0
    <h1 class="rv">Rumah bersih,<br>hati pun <em>tenang.</em></h1>
    <p class="rv">Pink Mop menyediakan servis pembersihan rumah, pejabat dan komersial oleh krew wanita terlatih — bersih, teliti dan kemas. Beroperasi 7 hari seminggu di seluruh Kota Bharu &amp; sekitar Kelantan.</p>
    <div class="hero-cta rv">
-    <a class="btn btn-pink" href="https://wa.me/601111150388?text=Salam%20Pink%20Mop%2C%20saya%20nak%20booking%20servis%20cleaning" target="_blank">WhatsApp Sekarang</a>
+    <a class="btn btn-pink" href="https://wa.me/60123810039?text=Salam%20Pink%20Mop%2C%20saya%20nak%20booking%20servis%20cleaning" target="_blank">WhatsApp Sekarang</a>
     <a class="btn btn-ghost" href="#servis">Lihat Servis</a>
    </div>
    <div class="hero-badges rv">
@@ -245,18 +252,18 @@ footer{border-top:1px solid rgba(255,255,255,.08);padding:2rem 0;background:#1D0
    <p>Untuk apartment, rumah, pejabat dan kawasan luar — pilih servis yang anda perlukan, kami datang dengan peralatan lengkap.</p>
   </div>
   <div class="svc-grid">
-   <div class="svc rv"><div class="dot">🏠</div><div><h3>Pembersihan Rumah</h3><p>Kemas &amp; cuci menyeluruh, move in / move out</p><a class="svc-wa" href="https://wa.me/601111150388?text=Salam%20Pink%20Mop%2C%20saya%20nak%20tanya%20pasal%20servis%20Pembersihan%20Rumah" target="_blank">💬 WhatsApp</a></div></div>
-   <div class="svc rv"><div class="dot">🏢</div><div><h3>Pembersihan Pejabat</h3><p>Ruang kerja bersih, imej syarikat terjaga</p><a class="svc-wa" href="https://wa.me/601111150388?text=Salam%20Pink%20Mop%2C%20saya%20nak%20tanya%20pasal%20servis%20Pembersihan%20Pejabat" target="_blank">💬 WhatsApp</a></div></div>
-   <div class="svc rv"><div class="dot">🏬</div><div><h3>Pembersihan Komersial</h3><p>Kedai, gudang &amp; premis perniagaan</p><a class="svc-wa" href="https://wa.me/601111150388?text=Salam%20Pink%20Mop%2C%20saya%20nak%20tanya%20pasal%20servis%20Pembersihan%20Komersial" target="_blank">💬 WhatsApp</a></div></div>
-   <div class="svc rv"><div class="dot">👕</div><div><h3>Servis Dobi</h3><p>Mencuci, melipat &amp; menggosok</p><a class="svc-wa" href="https://wa.me/601111150388?text=Salam%20Pink%20Mop%2C%20saya%20nak%20tanya%20pasal%20servis%20Servis%20Dobi" target="_blank">💬 WhatsApp</a></div></div>
-   <div class="svc rv"><div class="dot">🧶</div><div><h3>Servis Cuci Karpet</h3><p>Karpet segar, bersih &amp; wangi semula</p><a class="svc-wa" href="https://wa.me/601111150388?text=Salam%20Pink%20Mop%2C%20saya%20nak%20tanya%20pasal%20servis%20Servis%20Cuci%20Karpet" target="_blank">💬 WhatsApp</a></div></div>
-   <div class="svc rv"><div class="dot">🌿</div><div><h3>Servis Halaman</h3><p>Menyapu, bersih longkang, cuci garaj</p><a class="svc-wa" href="https://wa.me/601111150388?text=Salam%20Pink%20Mop%2C%20saya%20nak%20tanya%20pasal%20servis%20Servis%20Halaman" target="_blank">💬 WhatsApp</a></div></div>
-   <div class="svc rv"><div class="dot">🍳</div><div><h3>Pembantu Dapur</h3><p>Bantuan penyediaan &amp; kemas dapur</p><a class="svc-wa" href="https://wa.me/601111150388?text=Salam%20Pink%20Mop%2C%20saya%20nak%20tanya%20pasal%20servis%20Pembantu%20Dapur" target="_blank">💬 WhatsApp</a></div></div>
-   <div class="svc rv"><div class="dot">🐜</div><div><h3>Kawalan Serangga</h3><p>Rumah selesa tanpa gangguan perosak</p><a class="svc-wa" href="https://wa.me/601111150388?text=Salam%20Pink%20Mop%2C%20saya%20nak%20tanya%20pasal%20servis%20Kawalan%20Serangga" target="_blank">💬 WhatsApp</a></div></div>
-   <div class="svc rv"><div class="dot">👶</div><div><h3>Penjagaan Bayi</h3><p>Penjaga amanah &amp; berpengalaman</p><a class="svc-wa" href="https://wa.me/601111150388?text=Salam%20Pink%20Mop%2C%20saya%20nak%20tanya%20pasal%20servis%20Penjagaan%20Bayi" target="_blank">💬 WhatsApp</a></div></div>
-   <div class="svc rv"><div class="dot">💉</div><div><h3>Kejururawatan Swasta</h3><p>Penjagaan warga emas &amp; pesakit di rumah</p><a class="svc-wa" href="https://wa.me/601111150388?text=Salam%20Pink%20Mop%2C%20saya%20nak%20tanya%20pasal%20servis%20Kejururawatan%20Swasta" target="_blank">💬 WhatsApp</a></div></div>
-   <div class="svc rv"><div class="dot">💆‍♀️</div><div><h3>Spa Bergerak</h3><p>Rawatan santai, kami datang ke rumah anda</p><a class="svc-wa" href="https://wa.me/601111150388?text=Salam%20Pink%20Mop%2C%20saya%20nak%20tanya%20pasal%20servis%20Spa%20Bergerak" target="_blank">💬 WhatsApp</a></div></div>
-   <div class="svc rv"><div class="dot">📦</div><div><h3>Servis Pemindahan</h3><p>Susun barang, kemas barang, pindah lancar</p><a class="svc-wa" href="https://wa.me/601111150388?text=Salam%20Pink%20Mop%2C%20saya%20nak%20tanya%20pasal%20servis%20Servis%20Pemindahan" target="_blank">💬 WhatsApp</a></div></div>
+   <div class="svc rv"><div class="dot">🏠</div><div><h3>Pembersihan Rumah</h3><p>Kemas &amp; cuci menyeluruh, move in / move out</p><a class="svc-wa" href="https://wa.me/60123810039?text=Salam%20Pink%20Mop%2C%20saya%20nak%20tanya%20pasal%20servis%20Pembersihan%20Rumah" target="_blank">💬 WhatsApp</a></div></div>
+   <div class="svc rv"><div class="dot">🏢</div><div><h3>Pembersihan Pejabat</h3><p>Ruang kerja bersih, imej syarikat terjaga</p><a class="svc-wa" href="https://wa.me/60123810039?text=Salam%20Pink%20Mop%2C%20saya%20nak%20tanya%20pasal%20servis%20Pembersihan%20Pejabat" target="_blank">💬 WhatsApp</a></div></div>
+   <div class="svc rv"><div class="dot">🏬</div><div><h3>Pembersihan Komersial</h3><p>Kedai, gudang &amp; premis perniagaan</p><a class="svc-wa" href="https://wa.me/60123810039?text=Salam%20Pink%20Mop%2C%20saya%20nak%20tanya%20pasal%20servis%20Pembersihan%20Komersial" target="_blank">💬 WhatsApp</a></div></div>
+   <div class="svc rv"><div class="dot">👕</div><div><h3>Servis Dobi</h3><p>Mencuci, melipat &amp; menggosok</p><a class="svc-wa" href="https://wa.me/60123810039?text=Salam%20Pink%20Mop%2C%20saya%20nak%20tanya%20pasal%20servis%20Servis%20Dobi" target="_blank">💬 WhatsApp</a></div></div>
+   <div class="svc rv"><div class="dot">🧶</div><div><h3>Servis Cuci Karpet</h3><p>Karpet segar, bersih &amp; wangi semula</p><a class="svc-wa" href="https://wa.me/60123810039?text=Salam%20Pink%20Mop%2C%20saya%20nak%20tanya%20pasal%20servis%20Servis%20Cuci%20Karpet" target="_blank">💬 WhatsApp</a></div></div>
+   <div class="svc rv"><div class="dot">🌿</div><div><h3>Servis Halaman</h3><p>Menyapu, bersih longkang, cuci garaj</p><a class="svc-wa" href="https://wa.me/60123810039?text=Salam%20Pink%20Mop%2C%20saya%20nak%20tanya%20pasal%20servis%20Servis%20Halaman" target="_blank">💬 WhatsApp</a></div></div>
+   <div class="svc rv"><div class="dot">🍳</div><div><h3>Pembantu Dapur</h3><p>Bantuan penyediaan &amp; kemas dapur</p><a class="svc-wa" href="https://wa.me/60123810039?text=Salam%20Pink%20Mop%2C%20saya%20nak%20tanya%20pasal%20servis%20Pembantu%20Dapur" target="_blank">💬 WhatsApp</a></div></div>
+   <div class="svc rv"><div class="dot">🐜</div><div><h3>Kawalan Serangga</h3><p>Rumah selesa tanpa gangguan perosak</p><a class="svc-wa" href="https://wa.me/60123810039?text=Salam%20Pink%20Mop%2C%20saya%20nak%20tanya%20pasal%20servis%20Kawalan%20Serangga" target="_blank">💬 WhatsApp</a></div></div>
+   <div class="svc rv"><div class="dot">👶</div><div><h3>Penjagaan Bayi</h3><p>Penjaga amanah &amp; berpengalaman</p><a class="svc-wa" href="https://wa.me/60123810039?text=Salam%20Pink%20Mop%2C%20saya%20nak%20tanya%20pasal%20servis%20Penjagaan%20Bayi" target="_blank">💬 WhatsApp</a></div></div>
+   <div class="svc rv"><div class="dot">💉</div><div><h3>Kejururawatan Swasta</h3><p>Penjagaan warga emas &amp; pesakit di rumah</p><a class="svc-wa" href="https://wa.me/60123810039?text=Salam%20Pink%20Mop%2C%20saya%20nak%20tanya%20pasal%20servis%20Kejururawatan%20Swasta" target="_blank">💬 WhatsApp</a></div></div>
+   <div class="svc rv"><div class="dot">💆‍♀️</div><div><h3>Spa Bergerak</h3><p>Rawatan santai, kami datang ke rumah anda</p><a class="svc-wa" href="https://wa.me/60123810039?text=Salam%20Pink%20Mop%2C%20saya%20nak%20tanya%20pasal%20servis%20Spa%20Bergerak" target="_blank">💬 WhatsApp</a></div></div>
+   <div class="svc rv"><div class="dot">📦</div><div><h3>Servis Pemindahan</h3><p>Susun barang, kemas barang, pindah lancar</p><a class="svc-wa" href="https://wa.me/60123810039?text=Salam%20Pink%20Mop%2C%20saya%20nak%20tanya%20pasal%20servis%20Servis%20Pemindahan" target="_blank">💬 WhatsApp</a></div></div>
   </div>
  </div>
 </section>
@@ -406,6 +413,23 @@ footer{border-top:1px solid rgba(255,255,255,.08);padding:2rem 0;background:#1D0
  </div>
 </section>
 
+<!-- AKSI SEBENAR -->
+<section class="light" id="aksi">
+ <div class="wrap">
+  <div class="sec-head rv">
+   <div class="eyebrow">Aksi Sebenar</div>
+   <h2>Bukan sekadar janji, <em>ini kerja sebenar.</em></h2>
+   <p>Intip aksi krew Pink Mop semasa menjalankan tugasan — teliti, bersungguh dan menyeluruh di setiap sudut rumah anda.</p>
+  </div>
+  <div class="aksi-grid">
+   <div class="aksi-item rv"><img src="assets/aksi-1.jpg" alt="Krew Pink Mop membersihkan sudut dinding dengan vakum" loading="lazy"></div>
+   <div class="aksi-item rv"><img src="assets/aksi-2.jpg" alt="Krew Pink Mop menyapu lantai rumah" loading="lazy"></div>
+   <div class="aksi-item rv"><img src="assets/aksi-3.jpg" alt="Krew Pink Mop membersihkan tingkap tinggi" loading="lazy"></div>
+   <div class="aksi-item rv"><img src="assets/aksi-4.jpg" alt="Krew Pink Mop mencuci tingkap luar" loading="lazy"></div>
+  </div>
+ </div>
+</section>
+
 <!-- PRODUK -->
 <section class="prod light" id="produk">
  <div class="wrap split">
@@ -469,7 +493,7 @@ footer{border-top:1px solid rgba(255,255,255,.08);padding:2rem 0;background:#1D0
   <div class="eyebrow rv">Booking Mudah, Terus WhatsApp</div>
   <h2 class="rv">Biar kami yang <em>kemaskan.</em></h2>
   <p class="rv">Hantar sahaja lokasi &amp; jenis servis yang anda perlukan — team Pink Mop akan balas dengan quotation dan slot yang tersedia.</p>
-  <a class="btn btn-pink rv" style="font-size:1.05rem;padding:1.1rem 2.4rem" href="https://wa.me/601111150388?text=Salam%20Pink%20Mop%2C%20saya%20nak%20booking%20servis%20cleaning" target="_blank">WhatsApp 011-1115 0388</a>
+  <a class="btn btn-pink rv" style="font-size:1.05rem;padding:1.1rem 2.4rem" href="https://wa.me/60123810039?text=Salam%20Pink%20Mop%2C%20saya%20nak%20booking%20servis%20cleaning" target="_blank">WhatsApp 012-381 0039</a>
 
   <div class="wa-bubble rv">
    <div class="wb-head">
@@ -490,7 +514,7 @@ footer{border-top:1px solid rgba(255,255,255,.08);padding:2rem 0;background:#1D0
   </div>
 
   <div class="contact-row rv">
-   <span>📞 <b>011-1115 0388</b></span>
+   <span>📞 <b>012-381 0039</b></span>
    <a href="https://www.facebook.com/PinkMop/" target="_blank">📘 <b>Pink Mop</b></a>
    <a href="https://www.instagram.com/pink.mop/" target="_blank">📸 <b>@pink.mop</b></a>
    <span>📍 <b>Kota Bharu, Kelantan</b></span>
@@ -505,7 +529,7 @@ footer{border-top:1px solid rgba(255,255,255,.08);padding:2rem 0;background:#1D0
  </div>
 </footer>
 
-<a class="wa-float" href="https://wa.me/601111150388?text=Salam%20Pink%20Mop%2C%20saya%20nak%20tanya%20pasal%20servis" target="_blank" aria-label="WhatsApp Pink Mop">
+<a class="wa-float" href="https://wa.me/60123810039?text=Salam%20Pink%20Mop%2C%20saya%20nak%20tanya%20pasal%20servis" target="_blank" aria-label="WhatsApp Pink Mop">
  <svg viewBox="0 0 32 32"><path d="M16 3C9.4 3 4 8.4 4 15c0 2.6.8 5 2.3 7L4 29l7.2-2.2c1.9 1 3.9 1.5 4.8 1.5 6.6 0 12-5.4 12-12S22.6 3 16 3zm0 22.3c-1.6 0-3.5-.5-5-1.4l-.4-.2-4.3 1.3 1.3-4.1-.3-.4C6 18.9 5.3 17 5.3 15 5.3 9.1 10.1 4.3 16 4.3S26.7 9.1 26.7 15 21.9 25.3 16 25.3zm5.9-7.7c-.3-.2-1.9-.9-2.2-1-.3-.1-.5-.2-.7.2-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-.3-.2-1.4-.5-2.6-1.6-1-.9-1.6-1.9-1.8-2.2-.2-.3 0-.5.1-.6l.5-.6c.2-.2.2-.3.3-.6.1-.2 0-.4 0-.6-.1-.2-.7-1.8-1-2.4-.3-.6-.5-.5-.7-.6h-.6c-.2 0-.6.1-.9.4-.3.3-1.1 1.1-1.1 2.7s1.2 3.1 1.3 3.3c.2.2 2.3 3.5 5.6 4.9.8.3 1.4.5 1.9.7.8.2 1.5.2 2.1.1.6-.1 1.9-.8 2.2-1.5.3-.8.3-1.4.2-1.5-.1-.2-.3-.3-.6-.4z"/></svg>
 </a>
 
