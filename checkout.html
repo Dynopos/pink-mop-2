@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Checkout — Pink Mop</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --plum:#26081A;
+  --pink:#F2318F;
+  --pink-soft:#FBB6D6;
+  --blush:#FDF3F7;
+  --ivory:#FFF9FB;
+  --ink:#2B1220;
+  --muted:#8A6478;
+  --line:rgba(242,49,143,.16);
+  --ok:#1E9E63;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Jost',system-ui,sans-serif;background:var(--blush);color:var(--ink);line-height:1.55;min-height:100vh;display:flex;flex-direction:column}
+.serif{font-family:'Playfair Display',Georgia,serif}
+a{color:inherit;text-decoration:none}
+
+header{background:var(--plum);padding:1rem 0}
+.brand{display:flex;align-items:baseline;gap:.4rem;justify-content:center}
+.brand .p{font-family:'Playfair Display',serif;font-style:italic;font-weight:700;font-size:1.2rem;color:var(--pink)}
+.brand .m{font-size:.65rem;letter-spacing:.4em;color:#fff;font-weight:500;text-transform:uppercase}
+
+.demo-banner{background:#FFF1D6;color:#8A5A00;text-align:center;font-size:.78rem;padding:.55rem 1rem;letter-spacing:.02em;border-bottom:1px dashed #E0B25A}
+
+main{flex:1;display:flex;justify-content:center;padding:2.5rem 1.2rem}
+.wrap{width:100%;max-width:920px;display:grid;grid-template-columns:1fr 1.2fr;gap:1.6rem;align-items:start}
+@media(max-width:760px){.wrap{grid-template-columns:1fr}}
+
+.card{background:#fff;border:1px solid var(--line);border-radius:20px;padding:1.6rem 1.5rem;box-shadow:0 14px 34px rgba(43,18,32,.08)}
+
+.summary h2{font-family:'Playfair Display',serif;font-size:1.15rem;font-weight:600;margin-bottom:1rem;color:var(--ink)}
+.summary .row{display:flex;justify-content:space-between;font-size:.88rem;color:var(--muted);padding:.5rem 0;border-bottom:1px solid var(--line)}
+.summary .row b{color:var(--ink);font-weight:500}
+.summary .total{display:flex;justify-content:space-between;align-items:baseline;margin-top:1rem;padding-top:1rem;border-top:1px solid var(--line)}
+.summary .total span{font-size:.85rem;color:var(--muted)}
+.summary .total b{font-family:'Playfair Display',serif;font-size:1.7rem;color:#D91C77}
+.summary .note{margin-top:1.2rem;font-size:.76rem;color:var(--muted);background:var(--blush);border-radius:10px;padding:.7rem .85rem;line-height:1.5}
+
+.pay h2{font-family:'Playfair Display',serif;font-size:1.15rem;font-weight:600;margin-bottom:1rem}
+.methods{display:grid;grid-template-columns:1fr 1fr;gap:.6rem;margin-bottom:1.3rem}
+.method{border:1.5px solid var(--line);border-radius:14px;padding:.8rem .9rem;font-size:.84rem;font-weight:500;cursor:pointer;display:flex;align-items:center;gap:.55rem;transition:.2s;background:#fff}
+.method:hover{border-color:rgba(242,49,143,.5)}
+.method.active{border-color:var(--pink);background:linear-gradient(120deg,#FFF0F7,#FFE6F1);box-shadow:0 4px 14px rgba(242,49,143,.15)}
+.method .ic{font-size:1.1rem}
+.method input{display:none}
+
+.field{margin-bottom:.9rem}
+.field label{display:block;font-size:.76rem;color:var(--muted);margin-bottom:.35rem;letter-spacing:.02em}
+.field select,.field input{width:100%;padding:.7rem .85rem;border-radius:10px;border:1px solid var(--line);font-family:inherit;font-size:.88rem;background:var(--ivory);color:var(--ink)}
+.field select:focus,.field input:focus{outline:none;border-color:var(--pink)}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:.7rem}
+
+.pay-btn{width:100%;margin-top:.4rem;padding:.95rem 1rem;border:none;border-radius:999px;background:linear-gradient(120deg,#F2318F,#D91C77);color:#fff;font-family:inherit;font-size:.95rem;font-weight:500;letter-spacing:.02em;cursor:pointer;box-shadow:0 10px 26px rgba(242,49,143,.32);transition:.2s}
+.pay-btn:hover{transform:translateY(-2px)}
+.pay-btn:disabled{opacity:.7;cursor:default;transform:none}
+.secure{display:flex;align-items:center;justify-content:center;gap:.4rem;margin-top:.85rem;font-size:.72rem;color:var(--muted)}
+
+.result{display:none;text-align:center;padding:2.4rem 1.5rem}
+.result.on{display:block}
+.pay-form.hidden{display:none}
+.result .tick{width:64px;height:64px;border-radius:50%;background:#E8F8EF;color:var(--ok);display:flex;align-items:center;justify-content:center;font-size:2rem;margin:0 auto 1.2rem}
+.result h3{font-family:'Playfair Display',serif;font-size:1.4rem;margin-bottom:.4rem}
+.result p{color:var(--muted);font-size:.9rem;max-width:34ch;margin:0 auto 1.6rem}
+.result .btn-back{display:inline-block;padding:.75rem 1.6rem;border-radius:999px;border:1px solid var(--line);font-size:.85rem;color:var(--ink)}
+
+.spinner{width:34px;height:34px;border-radius:50%;border:3px solid var(--line);border-top-color:var(--pink);margin:0 auto 1rem;animation:spin .8s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+footer{text-align:center;padding:1.4rem 1rem;font-size:.75rem;color:var(--muted)}
+</style>
+</head>
+<body>
+
+<header><div class="brand"><span class="p">Pink</span><span class="m">Mop</span></div></header>
+<div class="demo-banner">⚠️ Ini adalah demo paparan checkout untuk tujuan tunjuk cara sahaja — tiada bayaran sebenar diproses.</div>
+
+<main>
+ <div class="wrap">
+
+  <div class="card summary">
+   <h2>Ringkasan Tempahan</h2>
+   <div class="row"><span>Pakej</span><b id="s-pkg">—</b></div>
+   <div class="row"><span>Tarikh</span><b id="s-date">—</b></div>
+   <div class="row"><span>Lokasi</span><b>Kota Bharu, Kelantan</b></div>
+   <div class="total"><span>Jumlah Bayaran</span><b id="s-price">RM0</b></div>
+   <p class="note">Selepas bayaran berjaya, team Pink Mop akan hubungi anda melalui WhatsApp untuk sahkan slot &amp; butiran lanjut.</p>
+  </div>
+
+  <div class="card pay">
+   <form class="pay-form" id="payForm">
+    <h2>Pilih Kaedah Pembayaran</h2>
+    <div class="methods" id="methods">
+     <label class="method active"><input type="radio" name="method" value="fpx" checked><span class="ic">🏦</span> FPX Online Banking</label>
+     <label class="method"><input type="radio" name="method" value="duitnow"><span class="ic">📱</span> DuitNow QR</label>
+     <label class="method"><input type="radio" name="method" value="card"><span class="ic">💳</span> Kad Debit/Kredit</label>
+     <label class="method"><input type="radio" name="method" value="ewallet"><span class="ic">👛</span> Touch 'n Go / GrabPay</label>
+    </div>
+
+    <div id="fields-fpx">
+     <div class="field">
+      <label>Pilih Bank</label>
+      <select>
+       <option>Maybank2u</option>
+       <option>CIMB Clicks</option>
+       <option>Public Bank (PBe)</option>
+       <option>RHB Now</option>
+       <option>Bank Islam</option>
+       <option>Bank Rakyat</option>
+      </select>
+     </div>
+    </div>
+
+    <div id="fields-card" style="display:none">
+     <div class="field"><label>Nombor Kad</label><input type="text" inputmode="numeric" placeholder="•••• •••• •••• ••••" maxlength="19"></div>
+     <div class="two-col">
+      <div class="field"><label>Tarikh Luput</label><input type="text" placeholder="MM/YY" maxlength="5"></div>
+      <div class="field"><label>CVC</label><input type="text" inputmode="numeric" placeholder="•••" maxlength="3"></div>
+     </div>
+    </div>
+
+    <div id="fields-duitnow" style="display:none">
+     <div class="field"><label>Imbas kod QR</label>
+      <div style="border:1.5px dashed var(--line);border-radius:14px;padding:1.6rem;text-align:center;color:var(--muted);font-size:.82rem">▦ Kod QR DuitNow akan dipaparkan di sini</div>
+     </div>
+    </div>
+
+    <div id="fields-ewallet" style="display:none">
+     <div class="field"><label>Nombor Telefon</label><input type="tel" placeholder="e.g. 0123456789"></div>
+    </div>
+
+    <button type="submit" class="pay-btn" id="payBtn">Bayar Sekarang</button>
+    <div class="secure">🔒 Simulasi checkout — tiada data dihantar / disimpan</div>
+   </form>
+
+   <div class="result" id="resultProcessing">
+    <div class="spinner"></div>
+    <h3 class="serif">Memproses pembayaran…</h3>
+    <p>Sila tunggu sebentar</p>
+   </div>
+
+   <div class="result" id="resultSuccess">
+    <div class="tick">✓</div>
+    <h3 class="serif">Pembayaran Berjaya!</h3>
+    <p>Terima kasih. Team Pink Mop akan hubungi anda melalui WhatsApp untuk sahkan slot tempahan.</p>
+    <a class="btn-back" href="index.html#pakej">← Kembali ke Laman Utama</a>
+   </div>
+
+  </div>
+
+ </div>
+</main>
+
+<footer>© 2026 Pink Mop Cleaning Services · Demo checkout — bukan gateway pembayaran sebenar</footer>
+
+<script>
+const params = new URLSearchParams(location.search);
+const pkg = params.get('pkg') || 'Pakej Pink Mop';
+const price = params.get('price') || '0';
+document.getElementById('s-pkg').textContent = pkg;
+document.getElementById('s-price').textContent = 'RM' + price;
+document.getElementById('s-date').textContent = new Date(Date.now()+86400000*3).toLocaleDateString('ms-MY',{day:'numeric',month:'long',year:'numeric'});
+
+document.querySelectorAll('.method').forEach(m=>{
+ m.addEventListener('click',()=>{
+  document.querySelectorAll('.method').forEach(x=>x.classList.remove('active'));
+  m.classList.add('active');
+  m.querySelector('input').checked = true;
+  ['fpx','card','duitnow','ewallet'].forEach(k=>{
+   document.getElementById('fields-'+k).style.display = (k===m.querySelector('input').value)?'block':'none';
+  });
+ });
+});
+
+document.getElementById('payForm').addEventListener('submit', e=>{
+ e.preventDefault();
+ document.getElementById('payForm').classList.add('hidden');
+ document.getElementById('resultProcessing').classList.add('on');
+ setTimeout(()=>{
+  document.getElementById('resultProcessing').classList.remove('on');
+  document.getElementById('resultSuccess').classList.add('on');
+ }, 1600);
+});
+</script>
+</body>
+</html>
