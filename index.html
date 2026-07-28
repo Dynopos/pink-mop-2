@@ -41,17 +41,17 @@ a{text-decoration:none;color:inherit}
 
 /* ---------- header ---------- */
 header{position:fixed;top:0;left:0;right:0;z-index:50;background:rgba(38,8,26,.82);backdrop-filter:blur(14px);border-bottom:1px solid rgba(255,255,255,.06)}
-.nav{display:flex;align-items:center;justify-content:space-between;height:68px}
-.brand{display:flex;align-items:baseline;gap:.45rem}
-.brand .p{font-family:'Playfair Display',serif;font-style:italic;font-weight:700;font-size:1.35rem;color:var(--pink);letter-spacing:.16em}
-.brand .m{font-size:.7rem;letter-spacing:.4em;color:var(--ivory);font-weight:500;text-transform:uppercase}
+.nav{display:flex;align-items:center;justify-content:space-between;min-height:68px;padding:10px 0}
+.brand{display:flex;align-items:center;background:#fff;border-radius:14px;padding:.4rem .9rem;box-shadow:0 6px 18px rgba(0,0,0,.25)}
+.brand img{height:56px;width:auto;display:block}
+@media(max-width:520px){.brand img{height:44px}}
 .nav-links{display:flex;gap:1.8rem;font-size:.85rem;letter-spacing:.06em;color:rgba(255,255,255,.75)}
 .nav-links a:hover{color:var(--pink-soft)}
 .nav .btn{padding:.55rem 1.3rem;font-size:.83rem}
 @media(max-width:760px){.nav-links{display:none}}
 
 /* ---------- hero ---------- */
-.hero{position:relative;min-height:100svh;display:flex;align-items:center;padding:110px 0 70px;
+.hero{position:relative;min-height:100svh;display:flex;align-items:center;padding:130px 0 70px;
  background:radial-gradient(1000px 600px at 85% 20%,#4A1533 0%,transparent 60%),
             radial-gradient(700px 500px at 10% 90%,#3A0F28 0%,transparent 60%),var(--plum)}
 .hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:2.5rem;align-items:center}
@@ -200,7 +200,7 @@ footer{border-top:1px solid rgba(255,255,255,.08);padding:2rem 0;background:#1D0
 
 <header>
  <div class="wrap nav">
-  <a class="brand" href="#top"><span class="p">Pink</span><span class="m">Mop</span></a>
+  <a class="brand" href="#top"><img src="assets/pinkmop-logo.png" alt="Pink Mop Cleaning Service"></a>
   <nav class="nav-links">
    <a href="#servis">Servis</a>
    <a href="#promo">Promo RM99</a>
