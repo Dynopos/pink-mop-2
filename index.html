@@ -199,6 +199,10 @@ footer{border-top:1px solid rgba(255,255,255,.08);padding:2rem 0;background:#1D0
 .wa-float{position:fixed;right:18px;bottom:18px;z-index:60;width:58px;height:58px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;box-shadow:0 10px 26px rgba(0,0,0,.4);transition:.25s}
 .wa-float:hover{transform:scale(1.07)}
 .wa-float svg{width:30px;height:30px;fill:#fff}
+.music-toggle{position:fixed;left:18px;bottom:18px;z-index:60;width:50px;height:50px;border-radius:50%;background:var(--plum-soft);border:1.5px solid var(--pink);color:#fff;font-size:1.3rem;display:flex;align-items:center;justify-content:center;box-shadow:0 10px 26px rgba(0,0,0,.4);cursor:pointer;transition:.25s}
+.music-toggle:hover{transform:scale(1.07)}
+.music-toggle.on{background:var(--pink);animation:musicPulse 1.6s ease-in-out infinite}
+@keyframes musicPulse{0%,100%{box-shadow:0 0 0 0 rgba(242,49,143,.55)}50%{box-shadow:0 0 0 10px rgba(242,49,143,0)}}
 
 /* reveal */
 .rv{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
@@ -575,9 +579,24 @@ mark.kw{background:linear-gradient(transparent 55%,rgba(242,49,143,.4) 55%);colo
  <svg viewBox="0 0 32 32"><path d="M16 3C9.4 3 4 8.4 4 15c0 2.6.8 5 2.3 7L4 29l7.2-2.2c1.9 1 3.9 1.5 4.8 1.5 6.6 0 12-5.4 12-12S22.6 3 16 3zm0 22.3c-1.6 0-3.5-.5-5-1.4l-.4-.2-4.3 1.3 1.3-4.1-.3-.4C6 18.9 5.3 17 5.3 15 5.3 9.1 10.1 4.3 16 4.3S26.7 9.1 26.7 15 21.9 25.3 16 25.3zm5.9-7.7c-.3-.2-1.9-.9-2.2-1-.3-.1-.5-.2-.7.2-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-.3-.2-1.4-.5-2.6-1.6-1-.9-1.6-1.9-1.8-2.2-.2-.3 0-.5.1-.6l.5-.6c.2-.2.2-.3.3-.6.1-.2 0-.4 0-.6-.1-.2-.7-1.8-1-2.4-.3-.6-.5-.5-.7-.6h-.6c-.2 0-.6.1-.9.4-.3.3-1.1 1.1-1.1 2.7s1.2 3.1 1.3 3.3c.2.2 2.3 3.5 5.6 4.9.8.3 1.4.5 1.9.7.8.2 1.5.2 2.1.1.6-.1 1.9-.8 2.2-1.5.3-.8.3-1.4.2-1.5-.1-.2-.3-.3-.6-.4z"/></svg>
 </a>
 
+<audio id="bgm" src="assets/pinkmop-lagu.mp3" loop preload="none"></audio>
+<button class="music-toggle" id="musicToggle" type="button" aria-label="Hidupkan / matikan lagu latar" aria-pressed="false">🔇</button>
+
 <script>
 const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target)}})},{threshold:.12});
 document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+
+const bgm=document.getElementById('bgm'),musicToggle=document.getElementById('musicToggle');
+const unlockEvents=['pointerup','touchend','keydown','click'];
+let musicMutedByUser=false;
+bgm.volume=.5;
+function setMusicState(isPlaying){musicToggle.classList.toggle('on',isPlaying);musicToggle.setAttribute('aria-pressed',isPlaying);musicToggle.textContent=isPlaying?'🔊':'🔇'}
+function stopListeningForUnlock(){unlockEvents.forEach(ev=>document.removeEventListener(ev,startMusicOnInteraction))}
+function playMusic(){return bgm.play().then(()=>{setMusicState(true);stopListeningForUnlock()})}
+function startMusicOnInteraction(e){if(musicMutedByUser||!bgm.paused||(e&&musicToggle.contains(e.target))){return}playMusic().catch(()=>{})}
+unlockEvents.forEach(ev=>document.addEventListener(ev,startMusicOnInteraction,{passive:true}));
+playMusic().catch(()=>{});
+musicToggle.addEventListener('click',()=>{if(bgm.paused){musicMutedByUser=false;playMusic().catch(()=>{})}else{musicMutedByUser=true;bgm.pause();setMusicState(false);stopListeningForUnlock()}});
 </script>
 </body>
 </html>
